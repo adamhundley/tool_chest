@@ -1,0 +1,14 @@
+<%= form_for @tool do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  <%= f.label :price %>
+  <%= f.text_field :price %><br>
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity %><br><br>
+  <%= f.select :category_id do %>
+    <% @categories.each do |c| %>
+      <%= content_tag(:option, c.name, value: c.id) %>
+    <% end %>
+  <% end %>
+  <%= f.submit %>
+<% end %>
