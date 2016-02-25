@@ -5,19 +5,25 @@ class ToolsController < ApplicationController
 
   def show
     find_tool
+    if current_user.tools.include?(@tool)
+    else
+      flash[:alert] = "You don't have this tool!"
+      redirect_to tools_path
+    end
   end
 
   def new
     @tool = Tool.new
-    @categories = Category.all
+    create_categories
   end
 
   def edit
     @tool = Tool.find(params[:id])
+    create_categories
   end
 
   def update
-    @categories = Category.all
+    create_categories
     @tool = Tool.find(params[:id])
     if @tool.update(tool_params)
       redirect_to tool_path(@tool)
@@ -42,6 +48,12 @@ class ToolsController < ApplicationController
   def destroy
     Tool.destroy(params[:id])
     redirect_to tools_path
+  end
+
+  def create_categories
+    Category.create(name: "Hand Tool")
+    Category.create(name: "Power Tool")
+    @categories ||= Category.all
   end
 
   private

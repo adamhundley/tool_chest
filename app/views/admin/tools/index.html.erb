@@ -1,0 +1,12 @@
+<h1>All Tools</h1>
+<ul>
+  <% @tools.each do |tool| %>
+    <li><%= link_to tool.name, admin_tool_path(tool) %></li>
+      <ul>
+        <li>Category: <%= tool.category.name %></li>
+        <li>User: <%= tool.user.username %></li>
+      </ul>
+  <% end %>
+</ul>
+
+<%= link_to "Create Tool", new_admin_tool_path %>

@@ -3,7 +3,7 @@ require 'test_helper'
 class UserCanCreateAccountTest < ActionDispatch::IntegrationTest
 
   def test_user_can_create_account_and_sees_name_on_dashboard
-    skip  
+
     visit '/'
     click_on "Create Account"
     fill_in 'Username', with: "adam"

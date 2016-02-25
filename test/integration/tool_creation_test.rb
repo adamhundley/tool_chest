@@ -3,6 +3,7 @@ require "test_helper"
 class ToolCreationTest < ActionDispatch::IntegrationTest
 
   def test_user_can_create_a_tool
+    skip
     visit new_tool_path
 
     fill_in "Name", with: "Screwball"

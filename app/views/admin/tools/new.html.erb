@@ -1,4 +1,4 @@
-<%= form_for @tool do |f| %>
+<%= form_for [:admin, @tool] do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %><br>
   <%= f.label :price %>
@@ -10,6 +10,11 @@
       <%= content_tag(:option, c.name, value: c.id) %>
       <%= {Prompt: "Select Category"} %>
     <% end %>
-  <% end %>
+  <% end %><br>
+  <%= f.select :user_id do %>
+    <% @users.each do |user| %>
+      <%= content_tag(:option, user.username, value: user.id) %>
+    <% end %>
+  <% end %><br>
   <%= f.submit %>
 <% end %>

@@ -5,7 +5,7 @@ Price: <%= @tool.formatted_price %><br>
 <% if @tool.category %>
   Category: <%= @tool.category.name %><br>
 <% end %>
-<%= link_to "EDIT #{@tool.name}", edit_tool_path(@tool.id)%><br>
-<%= link_to "DESTROY #{@tool.name}", tool_path(@tool.id), method: "Delete" %>
+<%= link_to "Edit", edit_tool_path(@tool.id)%><br>
+<%= link_to "Delete", tool_path(@tool.id), method: "Delete" %>
 
 </div>

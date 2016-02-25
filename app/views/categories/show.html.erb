@@ -1,0 +1,12 @@
+
+<h1><%= @category.name %> Tools</h1>
+
+<% if @category.current_user_tools(current_user) == [] %>
+<h3>You have no tools in <%= @category.name %></h3>
+<% else %>
+<ul>
+  <% @category.current_user_tools(current_user).each do |tool| %>
+  <li><%= link_to tool.name, tool_path %></li>
+  <% end %>
+</ul>
+<% end %>

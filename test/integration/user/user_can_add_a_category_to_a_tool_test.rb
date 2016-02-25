@@ -3,8 +3,7 @@ require 'test_helper'
 class UserCanAddACategoryToAToolTest < ActionDispatch::IntegrationTest
   def test_user_can_create_a_tool_with_category
     User.create(username: "Adam", password: "pass")
-    Category.create(name: "Hand Tool")
-    Category.create(name: "Power Tool")
+
 
     visit '/login'
     fill_in 'Username', with: "Adam"
@@ -26,7 +25,6 @@ class UserCanAddACategoryToAToolTest < ActionDispatch::IntegrationTest
       assert page.has_content?("10.99")
       assert page.has_content?("10")
       assert page.has_content?("Hand Tool")
-
     end
   end
 end

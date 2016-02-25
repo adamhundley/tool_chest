@@ -1,7 +1,7 @@
-require 'test_helper'
+require "test_helper"
 
 class ToolTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  should belong_to :category
+  should belong_to :user
+  should_not allow_value("").for(:name)
 end
